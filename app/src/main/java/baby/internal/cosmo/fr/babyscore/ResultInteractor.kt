@@ -6,16 +6,16 @@ interface ResultInteractor {
     fun addMatch()
 }
 
-class ResultInteractorImpl(val presenter: ResultPresenter, val controller: ResultDataSourceController) : ResultInteractor {
+class ResultInteractorImpl(val presenter: ResultPresenter, val dataSourceController: ResultDataSourceController) : ResultInteractor {
 
 
 
     init {
-        controller.subscribe(this)
+        dataSourceController.subscribe(this)
     }
 
     override fun fetch() {
-        controller.fetch()
+        dataSourceController.fetch()
     }
 
     override fun onNewDataFetched(results: List<Result>) {

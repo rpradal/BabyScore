@@ -10,7 +10,7 @@ interface ResultDataSourceController {
 }
 
 
-class ResultDataSourceImpl() : ResultDataSource, ResultDataSourceController {
+class ResultDataSourceImpl : ResultDataSource, ResultDataSourceController {
 
     var interactor: ResultInteractor? = null
 

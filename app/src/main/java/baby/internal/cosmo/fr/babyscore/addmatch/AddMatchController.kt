@@ -11,8 +11,3 @@ class AddMatchControllerImpl(val interactor: AddMatchInteractor) : AddMatchContr
     }
 
 }
-
-interface AddMatchInteractor {
-    fun addMatch(inputData: AddMatchInput)
-
-}
