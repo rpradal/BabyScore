@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "baby.internal.cosmo.fr.babyscore"
         minSdkVersion 21
@@ -32,6 +32,8 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:25.1.1'
     implementation 'com.android.support:recyclerview-v7:25.1.1'
     implementation 'com.android.support:cardview-v7:25.1.1'
+    implementation 'com.android.support:design:25.1.1'
+
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 

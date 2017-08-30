@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".addmatch.AddMatchDialogActivity"
+            android:theme="@style/AppDialogTheme"
+            android:label="@string/add_match_title"/>
     </application>
 
 </manifest>

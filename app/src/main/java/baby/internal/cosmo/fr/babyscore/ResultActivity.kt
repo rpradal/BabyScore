@@ -3,6 +3,7 @@ package baby.internal.cosmo.fr.babyscore
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import baby.internal.cosmo.fr.babyscore.addmatch.AddMatchDialogActivity
 import kotlinx.android.synthetic.main.activity_result.*
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
@@ -27,6 +28,12 @@ class ResultActivity : AppCompatActivity(), ResultDisplay {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = resultAdapter
 
+        floatingActionButton.setOnClickListener {
+            launch(CommonPool) {
+                controller.addMatch()
+            }
+        }
+
     }
 
     override fun onResume() {
@@ -39,6 +46,12 @@ class ResultActivity : AppCompatActivity(), ResultDisplay {
     override fun showResults(results: List<Result>) {
         launch(UI) {
             resultAdapter.items = results
+        }
+    }
+
+    override fun showAddMatchScreen() {
+        launch(UI) {
+            this@ResultActivity.startActivity(AddMatchDialogActivity.getIntent(this@ResultActivity))
         }
     }
 
