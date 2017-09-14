@@ -42,3 +42,6 @@ local.properties
 
 #Mac
 .DS_Store
+
+# Firebase config file
+app/google-services.json
