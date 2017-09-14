@@ -1,21 +1,22 @@
 package baby.internal.cosmo.fr.babyscore.addmatch
 
-import android.util.Log
+import com.google.firebase.database.FirebaseDatabase
 
 interface AddMatchDataSourceController {
     fun attach(interactor: AddMatchInteractor)
     fun addMatch(inputData: AddMatchInput)
 }
 
-class AddMatchDataSourceControllerImpl : AddMatchDataSourceController, AddMatchDataSource {
-    lateinit var interactor : AddMatchInteractor
+class AddMatchDataSourceControllerImpl(private val firebaseDatabase: FirebaseDatabase) : AddMatchDataSourceController, AddMatchDataSource {
+    lateinit var interactor: AddMatchInteractor
 
     override fun attach(interactor: AddMatchInteractor) {
         this.interactor = interactor
     }
 
     override fun addMatch(inputData: AddMatchInput) {
-            Log.d("AddMatchDSC", "AddMatch $inputData")
+        val reference = firebaseDatabase.reference
+        reference.database.getReference("matches").push().setValue(inputData)
     }
 }
 

@@ -5,7 +5,7 @@ interface AddMatchInteractor {
 }
 
 class AddMatchInteractorImpl(private val addMatchPresenter: AddMatchPresenter,
-                             private val dataSourceController: AddMatchDataSourceController) : AddMatchInteractor {
+    private val dataSourceController: AddMatchDataSourceController) : AddMatchInteractor {
 
     init {
         dataSourceController.attach(this)
@@ -15,14 +15,12 @@ class AddMatchInteractorImpl(private val addMatchPresenter: AddMatchPresenter,
 
         if (inputData.firstTeamFirstPlayerName.isBlank() || inputData.secondTeamFirstPlayerName.isBlank()) {
             addMatchPresenter.presentInvalidInput()
-        }
-
-        if (!inputData.scoreFirstTeam.isNumber() || !inputData.scoreSecondTeam.isNumber()) {
+        } else if (!inputData.scoreFirstTeam.isNumber() || !inputData.scoreSecondTeam.isNumber()) {
             addMatchPresenter.presentInvalidInput()
+        } else {
+            dataSourceController.addMatch(inputData)
+            addMatchPresenter.dismiss()
         }
-
-        dataSourceController.addMatch(inputData)
-
     }
 
     private fun String.isNumber(): Boolean {

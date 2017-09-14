@@ -8,8 +8,6 @@ interface ResultInteractor {
 
 class ResultInteractorImpl(val presenter: ResultPresenter, val dataSourceController: ResultDataSourceController) : ResultInteractor {
 
-
-
     init {
         dataSourceController.subscribe(this)
     }
