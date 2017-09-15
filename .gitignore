@@ -43,5 +43,9 @@ local.properties
 #Mac
 .DS_Store
 
+
 # Firebase config file
 app/google-services.json
+
+# Node libraries
+cloudFunctions/functions/node_modules/
