@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import baby.internal.cosmo.fr.babyscore.addmatch.AddMatchDialogActivity
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_result.*
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
@@ -35,6 +36,7 @@ class ResultActivity : AppCompatActivity(), ResultDisplay {
             }
         }
 
+        FirebaseMessaging.getInstance().subscribeToTopic("fanny")
     }
 
     override fun onResume() {
